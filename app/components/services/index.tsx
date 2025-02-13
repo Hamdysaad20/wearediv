@@ -6,11 +6,7 @@ import { Ripple } from '../ui/ripple';
 
 export const Services = () => {
   const services = [
-    {
-      title: 'Network',
-      description: 'Empowering creators with industry-leading analytics and global distribution solutions.',
-      color: '#9333EA', // Changed to a different purple
-    },
+
     {
       title: 'Artists',
       description: 'A complete platform to manage your music, grow your audience, and keep 100% of your royalties.',
@@ -57,7 +53,7 @@ export const Services = () => {
         <span className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Divzoon Network</span>
         <p className="mt-6 text-xl text-gray-600 max-w-2xl">Empowering digital creators with innovative solutions and global reach</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl w-full relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl w-full relative">
         {services.map((service, index) => (
           <div 
             key={index} 
