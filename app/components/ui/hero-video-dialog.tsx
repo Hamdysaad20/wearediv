@@ -61,23 +61,33 @@ export function HeroVideoDialog({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsVideoOpen(false)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md"
+            onClick={(e) => {
+              // Only close if clicking the backdrop
+              if (e.target === e.currentTarget) {
+                setIsVideoOpen(false);
+              }
+            }}
+            className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md"
           >
             <motion.div
               {...selectedAnimation}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
+              onClick={(e) => e.stopPropagation()}
             >
-              <motion.button className="absolute -top-16 right-0 rounded-full bg-white/10 p-2 text-xl text-white backdrop-blur-md">
-                <X className="h-5 w-5" />
+              <motion.button 
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute -top-16 right-0 rounded-full bg-black/50 p-3 text-xl text-white backdrop-blur-md hover:bg-black/70 transition-all duration-200 z-[1001]"
+              >
+                <X className="h-6 w-6" />
               </motion.button>
-              <div className="relative z-[1] h-full w-full overflow-hidden rounded-2xl border-2 border-white">
+              <div className="relative z-[1000] h-full w-full overflow-hidden rounded-2xl border-2 border-white/20">
                 <iframe
-                  src={videoSrc}
-                  className="h-full w-full rounded-2xl"
+                  src={`${videoSrc}?autoplay=1&rel=0&showinfo=0`}
+                  className="h-full w-full rounded-2xl bg-black"
                   allowFullScreen
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  style={{ pointerEvents: 'auto', position: 'relative', zIndex: 1000 }}
                 ></iframe>
               </div>
             </motion.div>

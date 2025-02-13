@@ -45,7 +45,7 @@ export const Services = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
-      <div className="mb-20 flex flex-col items-center text-center relative z-10" ref={mainTitleRef}>
+      <div className="mb-20 flex flex-col items-center text-center relative " ref={mainTitleRef}>
         <Ripple>
           <Logo 
             width={90} 
@@ -61,13 +61,12 @@ export const Services = () => {
         {services.map((service, index) => (
           <div 
             key={index} 
-            className="p-10 relative z-10 bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 group cursor-pointer min-h-[280px] flex flex-col hover:-translate-y-2 before:absolute before:inset-0 before:bg-gradient-to-r before:from-[var(--service-color)] before:to-transparent before:opacity-0 before:transition-opacity before:rounded-3xl before:duration-500 hover:before:opacity-100"
+            className="p-10 relative  bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100/50 group cursor-pointer min-h-[280px] flex flex-col hover:-translate-y-2"
             ref={(el: HTMLDivElement | null) => {
               serviceRefs.current[index] = el;
             }}
             onClick={() => window.location.href = `/${service.title.toLowerCase()}`}
             style={{
-              '--service-color': `${service.color}20`,
               background: `radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), ${service.color}0a, transparent 40%)`,
             } as React.CSSProperties}
             onMouseMove={(e) => {
