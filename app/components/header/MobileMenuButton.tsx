@@ -3,11 +3,12 @@ import { Menu, X } from 'lucide-react'
 interface MobileMenuButtonProps {
   isOpen: boolean
   onToggle: () => void
+  className?: string
 }
 
-export function MobileMenuButton({ isOpen, onToggle }: MobileMenuButtonProps) {
+export function MobileMenuButton({ isOpen, onToggle, className = '' }: MobileMenuButtonProps) {
   return (
-    <div className="flex lg:hidden relative z-[60]">
+    <div className={`flex lg:hidden relative z-[60] ${className}`}>
       <button
         type="button"
         className="text-white hover:text-gray-300 transition-colors"

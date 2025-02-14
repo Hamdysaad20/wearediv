@@ -2,11 +2,19 @@ import React from 'react'
 
 interface AnimatedGradientTextProps {
   children: React.ReactNode
+  colors: {
+    from: string
+    via: string
+    to: string
+  }
 }
 
-export const AnimatedGradientText = ({ children }: AnimatedGradientTextProps) => {
+export const AnimatedGradientText = ({ 
+  children, 
+  colors
+}: AnimatedGradientTextProps) => {
   return (
-    <span className="inline-flex bg-white/5 overflow-hidden px-4 py-6 animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
+    <span className={`inline-flex overflow-hidden px-4 py-6 animate-text-gradient bg-gradient-to-r from-[${colors.from}] via-[${colors.via}] to-[${colors.to}] bg-[400%_auto] bg-clip-text text-transparent`}>
       {children}
     </span>
   )

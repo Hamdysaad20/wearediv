@@ -24,15 +24,19 @@ export const HeroContent = () => {
     >
       <AnnouncementBanner words={announcementWords} />
 
-      <h1 className="text-4xl md:text-7xl lg:text-9xl font-bold leading-[1.1] tracking-tight">
-        <AnimatedGradientText>
-          Get Heard by Millions, Content Without Limits
+      <h1 className="text-3xl md:text-6xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
+        <AnimatedGradientText colors={{
+          from: '#ffffff',
+          via: '#a8a8a8',
+          to: '#d4d4d4'
+        }}>
+          Get Heard by Millions <br/>Create, Share, Monetize.
         </AnimatedGradientText>
       </h1>
 
-      <div className="max-w-2xl mx-auto">
-        <p className="text-sm md:text-xl text-gray-400">
-          Unlock global content distribution that puts your story everywhere that matters. Break barriers, reach new markets, and scale your influence across all platforms.
+      <div className="max-w-3xl mx-auto">
+        <p className="text-sm md:text-xl lg:text-2xl text-gray-400">
+        Your content, your rules—reach new markets, grow your audience, and make money doing what you love.
         </p>
       </div>
 

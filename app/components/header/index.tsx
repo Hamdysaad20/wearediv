@@ -37,10 +37,28 @@ export function Header() {
       className="fixed w-full bg-black/90 backdrop-blur-sm z-50 border-b border-white/10"
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-        <LogoSection />
-        <MobileMenuButton isOpen={state.mobileMenuOpen} onToggle={toggleMobileMenu} />
-        <DesktopNavigation />
-        <AuthButtons />
+        <div className="flex items-center justify-between w-full">
+          <LogoSection 
+            logoWidth={28}
+            logoHeight={28}
+            logoColor="white"
+            logoClassName="mr-2"
+            textGradientFrom="white"
+            textGradientTo="gray-400"
+            textClassName="text-xl font-bold"
+          />
+          <div className="hidden lg:flex flex-1 justify-center">
+            <DesktopNavigation />
+          </div>
+          <div className="flex items-center">
+            <AuthButtons />
+            <MobileMenuButton 
+              isOpen={state.mobileMenuOpen} 
+              onToggle={toggleMobileMenu} 
+              className="ml-4" 
+            />
+          </div>
+        </div>
       </nav>
       <MobileNavigation 
         isOpen={state.mobileMenuOpen} 

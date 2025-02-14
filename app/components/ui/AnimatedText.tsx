@@ -7,14 +7,22 @@ interface AnimatedTextProps {
   text: string
   className?: string
   gradient?: boolean
+  gradientFrom?: string
+  gradientTo?: string
 }
 
-export function AnimatedText({ text, className, gradient = false }: AnimatedTextProps) {
+export function AnimatedText({ 
+  text, 
+  className, 
+  gradient = false,
+  gradientFrom = 'white',
+  gradientTo = 'gray-400'
+}: AnimatedTextProps) {
   return (
     <motion.span
       className={clsx(
         'inline-block',
-        gradient ? 'bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent' : '',
+        gradient ? `bg-gradient-to-r from-${gradientFrom} to-${gradientTo} bg-clip-text text-transparent` : '',
         className
       )}
       initial={{ opacity: 0, y: 20 }}

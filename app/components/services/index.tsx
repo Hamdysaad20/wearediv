@@ -1,25 +1,55 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Logo } from '../ui/Logo';
-import { Ripple } from '../ui/ripple';
+import { motion } from 'framer-motion'
+import { AnimatedGradientText } from '../hero/AnimatedGradientText'
+import {LogoSection} from "../header/LogoSection"
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+
 
 export const Services = () => {
+  // Add the slides data structure
+  const slides = [
+    {
+      text: "Fuel Your Creativity",
+      animation: "/dotlottie/Music.lottie",
+    },
+    {
+      text: "Expand Your Reach",
+      animation: "/dotlottie/rocket.lottie",
+    },
+    {
+      text: "Own Your Success",
+      animation: "/dotlottie/crown.lottie",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Add the animation interval
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const services = [
 
     {
       title: 'Artists',
-      description: 'A complete platform to manage your music, grow your audience, and keep 100% of your royalties.',
+      description: 'Take control of your music, grow your fanbase, and keep 100% of your royalties.',
       color: '#F43F5E',
     },
     {
       title: 'Creators',
-      description: 'Boost your YouTube and social channels with expert-driven tools for audience growth and monetization.',
+      description: 'Level up your YouTube & socials with pro tools for audience growth & monetization.',
       color: '#EAB308',
     },
     {
       title: 'Labels',
-      description: 'White-label solutions, advanced analytics, and full-scale distribution services to elevate your label\'s reach.',
+      description: 'Get powerful analytics & distribution to scale your reach like never before.',
       color: '#E879F9', // Original pink/purple
     },
   ];
@@ -41,17 +71,86 @@ export const Services = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
-      <div className="mb-20 flex flex-col items-center text-center relative " ref={mainTitleRef}>
-        <Ripple>
-          <Logo 
-            width={90} 
-            height={90} 
-            color="#00000"
-            className="opacity-90 hover:opacity-100 transition-opacity mb-6 group-hover:scale-110 transform duration-500"
-          />
-        </Ripple>
-        <span className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Divzoon Network</span>
-        <p className="mt-6 text-xl text-gray-600 max-w-2xl">Empowering digital creators with innovative solutions and global reach</p>
+      <div className="mb-20 flex flex-col items-center text-center relative" ref={mainTitleRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+         <div className='w-full max-w-[1000px] relative'>
+         <div className="mb-1 flex  items-center justify-center w-full">
+            <LogoSection 
+              logoWidth={32}
+              logoHeight={32}
+              logoColor="#000000"
+              logoClassName="mr-2"
+              textGradientFrom="gray-900"
+              textGradientTo="gray-600"
+              className="flex justify-center items-center scale-90"
+              textClassName="text-2xl font-bold"
+            />
+          </div>
+
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+            <AnimatedGradientText colors={{
+              from: '#fffff',
+              via: '#111111',
+              to: '#222222'
+            }}>
+              <span className="whitespace-pre-line text-white flex flex-col items-center gap-4">
+                <span className="flex flex-wrap items-center justify-center gap-4">
+                  <span className="inline-flex items-center gap-2">
+                    <motion.div 
+                      className="rounded-full overflow-hidden px-6 bg-black min-w-20 p-1 flex items-center"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                      <motion.span 
+                        key={slides[currentIndex].text}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="mr-3"
+                      >
+                        {slides[currentIndex].text}
+                      </motion.span>
+                      <motion.div
+                        key={slides[currentIndex].animation}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        style={{ filter: 'blur(0.5px)' }}
+                      >
+                        <DotLottieReact
+                          src={slides[currentIndex].animation}
+                          autoplay
+                          loop
+                          style={{ height: 65, width: 65, display: 'inline-block', verticalAlign: 'middle' }}
+                        />
+                      </motion.div>
+                    </motion.div>
+                  </span>
+                </span>
+              </span>
+            </AnimatedGradientText>
+          </h1>
+         </div>
+          <h3 className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 mb-6">
+          </h3>
+          <motion.p 
+            className="mt-6 text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            You create. We amplify. Own your content, grow your fanbase, and get paid—no middlemen, no limits. 
+            Whether you're dropping tracks, building your brand, or running a label, 
+            we've got the tools to help you break through and make an impact.
+          </motion.p>
+        </motion.div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl w-full relative">
         {services.map((service, index) => (
