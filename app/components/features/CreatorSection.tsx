@@ -39,8 +39,24 @@ export const CreatorSection = () => {
         transition={{ duration: 0.8 }}
         className="mb-12 text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">For Content Creators</h2>
-        <p className="text-xl text-gray-600">Empower your creative journey</p>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4">For Content Creators</h2>
+        <p className="text-xl md:text-2xl text-gray-600 mb-8">Empower your creative journey</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 w-full max-w-md mx-auto">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+          >
+            Get Started Now
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto px-8 py-4 bg-transparent text-white border-2 border-white/20 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors"
+          >
+            Learn More
+          </motion.button>
+        </div>
       </motion.div>
 
       <ProgressSlider vertical={false} activeSlider="monetize" className="relative">
