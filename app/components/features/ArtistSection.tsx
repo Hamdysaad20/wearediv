@@ -37,9 +37,12 @@ export const ArtistSection = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="mb-12 text-center"
+        className="mb-12 items-center flex justify-center flex-col text-center"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4">For Artists & Managers</h2>
+        <div className="bg-rose-100 text-rose-900 px-4 py-1 rounded-full text-sm font-medium mb-6">
+          For Artists
+        </div>
+        <h2 className="text-4xl max-w-[1000px] md:text-5xl lg:text-7xl font-bold mb-4">Control Your Sound, Get the Recognition You Deserve</h2>
         <p className="text-xl md:text-2xl text-gray-600 mb-8">Take control of your music career</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 w-full max-w-md mx-auto">
           <motion.button
