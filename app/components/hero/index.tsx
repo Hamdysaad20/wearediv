@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { HeroContent } from './HeroContent'
 import { HeroVideoDialog } from '../ui/hero-video-dialog'
