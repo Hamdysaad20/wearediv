@@ -7,18 +7,20 @@ import { cn } from '../../../lib/utils'
 interface SparkButtonProps {
   children: React.ReactNode
   variant?: 'primary' | 'secondary'
+  className?: string
 }
 
-export const SparkButton = ({ children, variant = 'primary' }: SparkButtonProps) => {
+export const SparkButton = ({ children, variant = 'primary', className }: SparkButtonProps) => {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-10 py-4 text-base font-medium transition duration-300 ease-out shadow-xl",
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-10 py-4 text-base font-medium transition duration-300 ease-out shadow-xl w-full sm:w-auto",
         variant === 'primary' 
           ? "bg-white text-black" 
-          : "border border-white/10 text-white hover:bg-white/5"
+          : "border border-white/10 text-white hover:bg-white/5",
+        className
       )}
     >
       {variant === 'primary' && (
@@ -27,7 +29,7 @@ export const SparkButton = ({ children, variant = 'primary' }: SparkButtonProps)
           <span className="absolute inset-0 bg-gradient-to-r from-white via-gray-400 to-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 animate-shimmer"></span>
         </>
       )}
-      <span className="relative flex items-center gap-3">
+      <span className="relative flex items-center gap-3 justify-center">
         {children}
       </span>
     </motion.button>

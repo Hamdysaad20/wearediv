@@ -6,10 +6,10 @@ import { HeroVideoDialog } from '../ui/hero-video-dialog'
 
 export function Hero() {
   return (
-    <div className="relative lg:mt-20 md:mt-12 mt-5   pb-12 min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
-      <div className="relative z-10   container mx-auto px-4">
+    <div className="relative lg:mt-20 md:mt-12 mt-5 pb-12 min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+      <div className="relative z-10 container mx-auto w-full">
         <HeroContent />
-        <div className="mt-12 rounded-xl overflow-hidden  max-w-6xl mx-auto lg:max-w-[1200px]">
+        <div className="mt-12 rounded-xl overflow-hidden max-w-6xl mx-auto lg:max-w-[1200px] w-full">
           <HeroVideoDialog
             animationStyle="from-center"
             videoSrc="https://www.youtube.com/embed/ZK-rNEhJIDs"

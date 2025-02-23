@@ -91,23 +91,13 @@ export const ProgressSlider: FC<ProgressSliderProps> = ({
     if (sliderContent) {
       const values = React.Children.toArray(sliderContent.props.children)
         .filter((child): child is React.ReactElement<SliderWrapperProps> => 
-          React.isValidElement(child) && 'value' in child.props
+          React.isValidElement(child) && 'value' in (child.props as SliderWrapperProps) && typeof (child.props as SliderWrapperProps).value === 'string'
         )
-        .map((child) => child.props.value)
+        .map((child) => (child.props as SliderWrapperProps).value)
         .filter(Boolean);
       setSliderValues(values);
     }
   }, [children]);
-
-  useEffect(() => {
-    if (sliderValues.length > 0) {
-      firstFrameTime.current = performance.now();
-      frame.current = requestAnimationFrame(animate);
-    }
-    return () => {
-      cancelAnimationFrame(frame.current);
-    };
-  }, [sliderValues, active, isFastForward]);
 
   const animate = (now: number) => {
     const currentDuration = isFastForward ? fastDuration : duration;
@@ -138,6 +128,16 @@ export const ProgressSlider: FC<ProgressSliderProps> = ({
       firstFrameTime.current = performance.now();
     }
   };
+
+  useEffect(() => {
+    if (sliderValues.length > 0) {
+      firstFrameTime.current = performance.now();
+      frame.current = requestAnimationFrame(animate);
+    }
+    return () => {
+      cancelAnimationFrame(frame.current);
+    };
+  }, [sliderValues, active, isFastForward]);
 
   const handleButtonClick = (value: string) => {
     if (value !== active) {

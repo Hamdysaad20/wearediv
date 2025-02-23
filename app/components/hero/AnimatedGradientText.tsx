@@ -14,7 +14,7 @@ export const AnimatedGradientText = ({
   colors
 }: AnimatedGradientTextProps) => {
   return (
-    <span className={`inline-flex overflow-hidden px-4 py-6 animate-text-gradient bg-gradient-to-r from-[${colors.from}] via-[${colors.via}] to-[${colors.to}] bg-[400%_auto] bg-clip-text text-transparent`}>
+    <span className={`inline-flex overflow-hidden  py-6 animate-text-gradient bg-gradient-to-r from-[${colors.from}] via-[${colors.via}] to-[${colors.to}] bg-[400%_auto] bg-clip-text text-transparent`}>
       {children}
     </span>
   )

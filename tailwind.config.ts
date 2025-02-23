@@ -79,8 +79,17 @@ module.exports = {
       animation: {
         gradient: "gradient 8s linear infinite",
         tilt: 'tilt 10s infinite linear',
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
       },
       keyframes: {
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
         gradient: {
           to: {
             backgroundPosition: "var(--bg-size) 0",

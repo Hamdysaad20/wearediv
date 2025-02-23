@@ -2,6 +2,7 @@
 
 import { ProgressSlider, SliderContent, SliderWrapper, SliderBtnGroup, SliderBtn } from '../ui/progress-slider';
 import { motion } from 'framer-motion';
+import { AnimatedGradientText } from '../hero/AnimatedGradientText';
 
 const artistSlides = [
   {
@@ -39,11 +40,21 @@ export const ArtistSection = () => {
         transition={{ duration: 0.8 }}
         className="mb-12 items-center flex justify-center flex-col text-center"
       >
-        <div className="bg-rose-100 text-rose-900 px-4 py-1 rounded-full text-sm font-medium mb-6">
+        <div className="bg-rose-100 text-rose-900 px-4 py-1 rounded-full text-sm font-medium mb-6 self-start sm:self-center">
           For Artists
         </div>
-        <h2 className="text-4xl max-w-[1000px] md:text-5xl lg:text-7xl font-bold mb-4">Control Your Sound, Get the Recognition You Deserve</h2>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8">Take control of your music career</p>
+        <h2 className="text-5xl sm:text-center text-left max-w-[1000px] md:text-5xl lg:text-7xl font-bold mb-4 leading-[1.1] tracking-tight">
+          <AnimatedGradientText colors={{
+            from: '#ffffff',
+            via: '#a8a8a8',
+            to: '#d4d4d4'
+          }}>
+            Control Your Sound<br className="hidden sm:block"/> Own Your Success
+          </AnimatedGradientText>
+        </h2>
+        <p className="text-xl md:text-2xl text-gray-400 mb-8 text-left sm:text-center max-w-[500px] sm:max-w-[900px] leading-relaxed mx-auto">
+          Take control of your music career. Distribute globally and manage your royalties with powerful tools.
+        </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 w-full max-w-md mx-auto">
           <motion.button
             whileHover={{ scale: 1.05 }}
