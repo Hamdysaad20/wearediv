@@ -74,9 +74,10 @@ export const LabelSection = () => {
   return (
     <div className="w-full max-w-7xl mx-auto py-12 md:py-24 px-4 relative overflow-hidden">
       <Ripple 
-        mainCircleOpacity={0.4}
+        mainCircleOpacity={0.9}
         fromColor="purple-400"
         toColor="purple-900"
+        color='purple'
         mainCircleSize={rippleProps.mainCircleSize}
         numCircles={rippleProps.numCircles}
       >

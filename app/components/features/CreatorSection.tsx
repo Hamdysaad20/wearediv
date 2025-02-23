@@ -75,9 +75,10 @@ export const CreatorSection = () => {
   return (
     <div className="w-full max-w-7xl mx-auto py-12 md:py-24 px-4 relative overflow-hidden">
     <Ripple 
-        mainCircleOpacity={0.4}
-        fromColor="amber-500"
+        mainCircleOpacity={0.9}
+        fromColor="yellow-500"
         toColor="yellow-600"
+        color='yellow'
         mainCircleSize={rippleProps.mainCircleSize}
         numCircles={rippleProps.numCircles}
       >

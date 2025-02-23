@@ -31,7 +31,7 @@ export const Ripple = React.memo(function Ripple({
         )}
         {...props}
       >
-        <div className={`absolute -inset-0.5 bg-gradient-to-r from-${fromColor} to-${toColor} rounded-full blur opacity-10 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`} />
+        <div className={`absolute -inset-0.5 bg-gradient-to-r from-${fromColor} to-${toColor} rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt`} />
         {Array.from({ length: numCircles }, (_, i) => {
           const size = mainCircleSize + i * 70;
           const opacity = mainCircleOpacity - i * 0.03;
@@ -42,7 +42,7 @@ export const Ripple = React.memo(function Ripple({
           return (
             <div
               key={i}
-              className={`[--i:${i}] absolute animate-ripple rounded-full border bg-gradient-to-r from-${color}-600/40 to-${color}-600/10 shadow-xl`}
+              className={`[--i:${i}] absolute animate-ripple rounded-full border bg-gradient-to-r from-${color}-600/40 to-${color}-600/40 shadow-xl`}
               style={
                 {
                   width: `${size}px`,

@@ -75,9 +75,10 @@ export const ArtistSection = () => {
   return (
     <div className="w-full max-w-7xl mx-auto py-12 md:py-24 px-4 relative overflow-hidden">
       <Ripple 
-        mainCircleOpacity={0.4}
+        mainCircleOpacity={1}
         fromColor="rose-400"
-        toColor="rose-900"
+        toColor="rose-400"
+        color='rose'
         mainCircleSize={rippleProps.mainCircleSize}
         numCircles={rippleProps.numCircles}
       >
