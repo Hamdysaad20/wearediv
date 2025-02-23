@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { footerNavigation } from "@/app/config/footer";
+import { LogoSection } from '../header/LogoSection';
 
 const CurrentYear = new Date().getFullYear();
 export default function Footer() {
   return (
     <footer className="relative w-svw overflow-hidden rounded-t-[30px] bg-primary-850/80">
       <div className="h-full w-full bg-slate-950">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       </div>
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-10 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="relative grid w-full grid-cols-1 gap-8 lg:grid-cols-3">
@@ -17,14 +17,16 @@ export default function Footer() {
               <div className="-ml-8 -mt-3 flex w-auto items-center">
                 <Link
                   href="/"
-                  className="flex w-auto cursor-pointer items-center rounded-2xl pt-4 duration-700 hover:animate-pulse hover:bg-gray-900/30"
+                  className="flex pl-4 w-auto relative cursor-pointer items-center rounded-2xl pt-4 duration-700 hover:animate-pulse "
                 >
-                  <Image
-                    src="/images/identity/Full_Logo.png"
-                    width={224}
-                    height={64}
-                    alt="Divzoon Network"
-                    className="aspect-video h-16 w-56 rounded-3xl object-contain p-3 px-6 duration-500 hover:bg-purple-600/20"
+                  <LogoSection 
+                    logoWidth={56}
+                    logoHeight={56}
+                    logoColor="white"
+                    logoClassName=" px-2 duration-500 hover:bg-purple-600/20"
+                    textGradientFrom="white"
+                    textGradientTo="gray-400"
+                    textClassName="text-2xl font-bold"
                   />
                 </Link>
               </div>

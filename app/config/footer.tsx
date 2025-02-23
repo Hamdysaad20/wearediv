@@ -80,23 +80,23 @@ const organizeFooterNavigation = (): FooterSection[] => {
 export const footerNavigation: FooterConfig = {
   companyInfo: {
     tagline: "Prepare for the future. Just say the magic word: ready for a sprint?",
-    address: "USA Inc. (HQ), 1309 Coffeen Avenue, STE 1200, Sheridan, WY 82801, USA"
+    address: "USA Inc. (HQ), 30 N Gould St Ste R, Sheridan, WY 82801, USA"
   },
   socialMediaLinks: [
     {
-      url: "https://www.youtube.com/@dragonsbootcampllc",
-      title: "YouTube",
-      icon: YouTubeIcon,
+      url: "https://www.linkedin.com/company/divzoon/",
+      title: "LinkedIn",
+      icon: LinkedInIcon,
     },
     {
-      url: "https://github.com/dragonsbootcampllc",
-      title: "GitHub",
+      url: "https://x.com/wearednetwork",
+      title: "X (Twitter)",
       icon: GitHubIcon,
     },
     {
-      url: "https://www.linkedin.com/company/dragonsbootcampllc/",
-      title: "LinkedIn",
-      icon: LinkedInIcon,
+      url: "https://www.instagram.com/wearednetwork/",
+      title: "Instagram",
+      icon: YouTubeIcon,
     },
   ],
   sections: [
