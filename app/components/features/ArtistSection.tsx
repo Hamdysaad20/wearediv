@@ -121,7 +121,7 @@ export const ArtistSection = () => {
               </motion.button>
             </div>
           </motion.div>
-          <ProgressSlider vertical={false} activeSlider="distribute" className="relative md:-mr-4 lg:-mr-8 order-2 md:order-1 lg:order-2">
+          <ProgressSlider vertical={false} activeSlider="distribute" className="relative md:-mr-4 lg:-mr-8 order-2 md:order-1 ">
             {sliderContent}
             <SliderBtnGroup className="absolute -bottom-4 h-fit text-white bg-black/80 backdrop-blur-md overflow-hidden grid grid-cols-2 md:grid-cols-4 rounded-xl w-full">
               {artistSlides.map((slide) => (
