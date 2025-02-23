@@ -83,27 +83,11 @@ export const ArtistSection = () => {
         numCircles={rippleProps.numCircles}
       >
         <div className="relative z-10 md:grid md:grid-cols-2 md:gap-8 items-center">
-          <ProgressSlider vertical={false} activeSlider="distribute" className="relative md:-mr-4 lg:-mr-8 order-none md:order-first">
-            {sliderContent}
-            <SliderBtnGroup className="absolute -bottom-4 h-fit text-white bg-black/80 backdrop-blur-md overflow-hidden grid grid-cols-2 md:grid-cols-4 rounded-xl w-full">
-              {artistSlides.map((slide) => (
-                <SliderBtn
-                  key={slide.sliderName}
-                  value={slide.sliderName}
-                  className="text-left p-4 border-r border-white/10 hover:bg-white/5 transition-colors"
-                  progressBarClass="bg-rose-500/20 h-full"
-                >
-                  <h2 className="text-lg font-bold mb-1">{slide.title}</h2>
-                  <p className="text-sm text-gray-300 line-clamp-2">{slide.desc}</p>
-                </SliderBtn>
-              ))}
-            </SliderBtnGroup>
-          </ProgressSlider>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-12 md:mb-0 flex flex-col items-start justify-center md:pl-8 order-first md:order-none"
+            className="mb-12 md:mb-0 flex flex-col items-start justify-center md:pl-8 order-first md:order-2 lg:order-1"
           >
             <div className="bg-rose-100 text-rose-900 px-4 py-1 rounded-full text-sm font-medium mb-6">
               For Artists
@@ -137,6 +121,22 @@ export const ArtistSection = () => {
               </motion.button>
             </div>
           </motion.div>
+          <ProgressSlider vertical={false} activeSlider="distribute" className="relative md:-mr-4 lg:-mr-8 order-2 md:order-1 lg:order-2">
+            {sliderContent}
+            <SliderBtnGroup className="absolute -bottom-4 h-fit text-white bg-black/80 backdrop-blur-md overflow-hidden grid grid-cols-2 md:grid-cols-4 rounded-xl w-full">
+              {artistSlides.map((slide) => (
+                <SliderBtn
+                  key={slide.sliderName}
+                  value={slide.sliderName}
+                  className="text-left p-4 border-r border-white/10 hover:bg-white/5 transition-colors"
+                  progressBarClass="bg-rose-500/20 h-full"
+                >
+                  <h2 className="text-lg font-bold mb-1">{slide.title}</h2>
+                  <p className="text-sm text-gray-300 line-clamp-2">{slide.desc}</p>
+                </SliderBtn>
+              ))}
+            </SliderBtnGroup>
+          </ProgressSlider>
 
 
         </div>
